@@ -1,13 +1,7 @@
-class Book:
+class Book():
     name: str
     isAvailable: bool
 
-    def __init__(self, name):
+    def __init__(self, name, isAvailable : bool = True):
         self.name = name
-        self.isAvailable = True
-
-    def rentBook(self):
-        self.isAvailable = False
-
-    def returnBook(self):
-        self.isAvailable = True
+        self.isAvailable = isAvailable

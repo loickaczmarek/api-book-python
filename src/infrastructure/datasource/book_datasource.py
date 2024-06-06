@@ -12,3 +12,9 @@ class BookDatasource(BookRepository):
 
     def getBooks(self):
         return self.books
+
+    def updateBook(self, book: Book):
+        for currentBook in self.books:
+            if book.name == currentBook.name:
+                currentBook.name = book.name
+                currentBook.isAvailable = book.isAvailable

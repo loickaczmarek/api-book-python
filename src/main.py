@@ -1,15 +1,11 @@
-from pydantic import BaseModel
-
 from fastapi import FastAPI
-
-from src.domain.entity.book import Book
 from src.entrypoint import bookRouter
 
 app = FastAPI()
 
 app.include_router(bookRouter)
 
-books = [Book("harry potter"), Book("seigneur des anneaux"), Book("narnia")]
+#books = [Book("harry potter"), Book("seigneur des anneaux"), Book("narnia")]
 
 
 #@app.get("/books/{name}")
@@ -24,17 +20,17 @@ books = [Book("harry potter"), Book("seigneur des anneaux"), Book("narnia")]
 #def read_items():
 #    return books
 
-class BookUpdate(BaseModel):
-    name: str
-    rent: bool
+#class BookUpdate(BaseModel):
+#    name: str
+#    rent: bool
 
-@bookRouter.post("books")
-def updateBook(bookUpdate: BookUpdate):
-    for book in books:
-        if bookUpdate.name == book.name:
-            if bookUpdate.rent:
-                book.rentBook()
-            else:
-                book.returnBook()
-            return "ok"
-    return "ko"
+#@bookRouter.post("books")
+#def updateBook(bookUpdate: BookUpdate):
+#    for book in books:
+#        if bookUpdate.name == book.name:
+#            if bookUpdate.rent:
+#               book.rentBook()
+#           else:
+#               book.returnBook()
+#           return "ok"
+#  return "ko"
